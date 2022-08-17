@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -19,6 +20,14 @@ mongoose.connect(mongoURI, (err) => {
     return console.log(err);
   }
   console.log('mongo connected');
+
+  // Enable  cors
+  app.use(
+    cors({
+      origin: 'https://web-connect-public-fe.vercel.app/',
+      optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    })
+  );
 
   // Connect Middlewares
   app.use(express.json());
