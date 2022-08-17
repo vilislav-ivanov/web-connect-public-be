@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 
 const mongoURI = process.env.MONGO_URI;
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT || 80;
 const authRoute = require('./routes/api/auth');
 const profileRoute = require('./routes/api/profile');
 const postRoute = require('./routes/api/post');
