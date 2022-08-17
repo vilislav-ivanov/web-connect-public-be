@@ -22,13 +22,7 @@ mongoose.connect(mongoURI, (err) => {
   console.log('mongo connected');
 
   // Enable  cors
-  app.use(
-    cors({
-      origin: 'https://web-connect-public-fe.vercel.app/',
-      optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-    })
-  );
-
+  app.use(cors());
   // Connect Middlewares
   app.use(express.json());
   app.use(express.urlencoded());
