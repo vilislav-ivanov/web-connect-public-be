@@ -13,6 +13,7 @@ const authRoute = require('./routes/api/auth');
 const profileRoute = require('./routes/api/profile');
 const postRoute = require('./routes/api/post');
 const photoUploadRoute = require('./routes/api/upload');
+const test = require('./uploads/test');
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, (err) => {
@@ -20,6 +21,7 @@ mongoose.connect(mongoURI, (err) => {
     return console.log(err);
   }
   console.log('mongo connected');
+  test();
 
   // Enable  cors
   app.use(cors());
